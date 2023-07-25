@@ -5,6 +5,7 @@ let num1 = 10;
 let num2 = 2;
 let operator = '/';
 
+//function to perform operations
 const add = (num1, num2) => {
     return num1 + num2;
 }
@@ -18,6 +19,7 @@ const divide = (num1, num2) => {
     return num1 / num2;
 }
 
+// conditional to determine which operation to perform
 const operate = (operator, num1, num2) => {
     switch (operator) {
         case '+': 
@@ -37,7 +39,7 @@ const operate = (operator, num1, num2) => {
     }
 }
 
-
+// input numbers to the display
 const populateDisplay = () => {
     numsBtn.forEach(number => {
         number.addEventListener('click', () => {
@@ -47,6 +49,7 @@ const populateDisplay = () => {
 }
 populateDisplay();
 
+//store operation values adn reset display
 const performOperation = () => {
     opBtns.forEach(operation => {
         operation.addEventListener('click', () => {
