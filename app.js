@@ -1,3 +1,4 @@
+const display = document.querySelector('.display');
 const numsBtn = document.querySelectorAll('.numbers');
 let num1 = 10;
 let num2 = 2;
@@ -36,8 +37,11 @@ const operate = (operator, num1, num2) => {
 }
 operate(operator, num1, num2)
 
-numsBtn.forEach(number => {
-    number.addEventListener('click', () => {
-        console.log(number.textContent)
-    })
-});
+const populateDisplay = () => {
+    numsBtn.forEach(number => {
+        number.addEventListener('click', () => {
+            display.textContent += number.textContent;
+        })
+    });
+}
+populateDisplay();
