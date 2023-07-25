@@ -52,6 +52,13 @@ const populateDisplay = () => {
 }
 populateDisplay();
 
+//clear display and reset values
+clearBtn.addEventListener('click', () => {
+    display.textContent = '';
+    num1 = 0;
+    num2 = 0;
+})
+
 // store operation values and reset display
 const performOperation = () => {
     opBtns.forEach(operation => {
@@ -64,10 +71,8 @@ const performOperation = () => {
 }
 performOperation();
 
-clearBtn.addEventListener('click', () => {
-    display.textContent = '';
-})
 
+// execute operation and display result
 equalBtn.addEventListener('click', () => {
     display.textContent = operate(operator, num1, num2);
 })
