@@ -1,5 +1,6 @@
 const display = document.querySelector('.display');
 const numsBtn = document.querySelectorAll('.numbers');
+const opBtns = document.querySelectorAll('.operators');
 let num1 = 10;
 let num2 = 2;
 let operator = '/';
@@ -35,7 +36,7 @@ const operate = (operator, num1, num2) => {
             alert('something went wrong!')
     }
 }
-operate(operator, num1, num2)
+
 
 const populateDisplay = () => {
     numsBtn.forEach(number => {
@@ -45,3 +46,18 @@ const populateDisplay = () => {
     });
 }
 populateDisplay();
+
+const performOperation = () => {
+    opBtns.forEach(operation => {
+        operation.addEventListener('click', () => {
+            num1 = parseFloat(display.textContent);
+            operator = operation.textContent;
+            display.textContent = '';
+        })
+    })
+}
+performOperation();
+
+
+
+operate(operator, num1, num2);
