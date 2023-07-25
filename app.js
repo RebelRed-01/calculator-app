@@ -1,11 +1,14 @@
 const display = document.querySelector('.display');
 const numsBtn = document.querySelectorAll('.numbers');
 const opBtns = document.querySelectorAll('.operators');
+const clearBtn = document.querySelector('.clear');
+const equalBtn = document.querySelector('.equal');
+
 let num1 = 10;
 let num2 = 2;
 let operator = '/';
 
-//function to perform operations
+// function to perform operations
 const add = (num1, num2) => {
     return num1 + num2;
 }
@@ -49,7 +52,7 @@ const populateDisplay = () => {
 }
 populateDisplay();
 
-//store operation values adn reset display
+// store operation values and reset display
 const performOperation = () => {
     opBtns.forEach(operation => {
         operation.addEventListener('click', () => {
@@ -61,6 +64,12 @@ const performOperation = () => {
 }
 performOperation();
 
+clearBtn.addEventListener('click', () => {
+    display.textContent = '';
+})
+
+equalBtn.addEventListener('click', () => {
+    display.textContent = operate(operator, num1, num2);
+})
 
 
-operate(operator, num1, num2);
