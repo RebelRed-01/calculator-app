@@ -4,9 +4,9 @@ const opBtns = document.querySelectorAll('.operators');
 const clearBtn = document.querySelector('.clear');
 const equalBtn = document.querySelector('.equal');
 
-let num1 = 10;
-let num2 = 2;
-let operator = '/';
+let num1 = 0;
+let num2 = 0;
+let operator = '';
 
 // function to perform operations
 const add = (num1, num2) => {
@@ -26,16 +26,16 @@ const divide = (num1, num2) => {
 const operate = (operator, num1, num2) => {
     switch (operator) {
         case '+': 
-            console.log(add(num1, num2));
+            return add(num1, num2);
             break;
         case '-':
-            console.log(subtract(num1, num2));
+            return subtract(num1, num2);
             break;
         case '*':
-            console.log(multiply(num1, num2));
+            return multiply(num1, num2);
             break;
         case '/':
-            console.log(divide(num1, num2));
+            return divide(num1, num2);
             break;
         default: 
             alert('something went wrong!')
@@ -63,8 +63,12 @@ clearBtn.addEventListener('click', () => {
 const performOperation = () => {
     opBtns.forEach(operation => {
         operation.addEventListener('click', () => {
-            num1 = parseFloat(display.textContent);
             operator = operation.textContent;
+            if (num1 == 0) {
+                num1 = parseFloat(display.textContent);
+            } else {
+                num2 = parseFloat(display.textContent);
+            }
             display.textContent = '';
         })
     })
@@ -76,5 +80,3 @@ performOperation();
 equalBtn.addEventListener('click', () => {
     display.textContent = operate(operator, num1, num2);
 })
-
-
