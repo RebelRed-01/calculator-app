@@ -60,23 +60,26 @@ clearBtn.addEventListener('click', () => {
 })
 
 // store operation values and reset display
-const performOperation = () => {
+const setOperation = () => {
     opBtns.forEach(operation => {
         operation.addEventListener('click', () => {
-            operator = operation.textContent;
             if (num1 == 0) {
                 num1 = parseFloat(display.textContent);
             } else {
                 num2 = parseFloat(display.textContent);
+                display.textContent = operate(operator, num1, num2);
+                num1 = parseFloat(display.textContent);
             }
+            operator = operation.textContent;
             display.textContent = '';
         })
     })
 }
-performOperation();
+setOperation();
 
 
 // execute operation and display result
 equalBtn.addEventListener('click', () => {
+    num2 = parseFloat(display.textContent);
     display.textContent = operate(operator, num1, num2);
 })
